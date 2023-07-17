@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý lớp học</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600&family=Readex+Pro:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="sidebar">
+        <div id="logo">
+          <img src="./img/logo.png" alt="Logo" />
+        </div>
+        <nav>
+          <p>Rikkei Academy</p>
+          <div id="boder"></div>
+          <div class="navi-link" id="form-one">
+            <i class="fa-solid fa-house"></i>
+            <a href="javascript:dashboard()">Bảng điều khiển</a><br />
+          </div>
+          <div class="navi-link current" id="form-two">
+            <i class="fa-solid fa-house"></i>
+            <a href="javascript:classManagement()">Quản lý lớp học ></a><br />
+          </div>
+          <div class="navi-link" id="form-three">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <a href="javascript:studentManagement()">Quản lý sinh viên</a><br />
+          </div>
+          <div class="navi-link" id="form-four">
+            <i class="fa-solid fa-square-poll-vertical"></i>
+            <a href="javascript:courseManagement()">Quản lý khóa học</a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="main">
+        <main>
+          <header>
+            <div id="header-two">
+              <img src="./img/bell.png" alt="Bell" />
+            <a class="btn btn-primary" href="javascript:logOut()">Đăng Xuất</a>
+              <!-- Modal dang xuat-->
+              <div
+                class="modal fade"
+                id="logOutModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Xác nhận đăng xuất
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">Bạn chắc chắn muốn đăng xuất?</div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Hủy
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        id="btnLogout"
+                      >
+                        Đăng Xuất
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <section>
+            <div id="control">
+              <button
+                type="button"
+                id="btnButtonNewClass"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#newClass"
+              >
+                Tạo mới lớp học
+              </button>
+
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="newClass"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Tạo mới lớp học
+                      </h5>
+                    </div>
+                    <div class="modal-body">
+                      <form action="#">
+                        <div class="input-group mb-3">
+                          <span
+                            class="input-group-text"
+                            id="inputGroup-sizing-default"
+                            >Mã lớp học</span
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default"
+                            id="classId"
+                            placeholder="Nhập mã lớp học"
+                          />
+                        </div>
+                        <div id="errorId"></div>
+                        <div class="input-group mb-3">
+                          <span
+                            class="input-group-text"
+                            id="inputGroup-sizing-default"
+                            >Tên lớp học</span
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default"
+                            id="className"
+                            placeholder="Nhập tên lớp học"
+                          />
+                        </div>
+                        <div id="errorName"></div>
+                        <div class="input-group mb-3">
+                          <span
+                            class="input-group-text"
+                            id="inputGroup-sizing-default"
+                            >Giảng viên</span
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default"
+                            id="classTeacher"
+                          />
+                        </div>
+                        <div id="errorTeacher"></div>
+                        <div class="input-group mb-3">
+                          <span
+                            class="input-group-text"
+                            id="inputGroup-sizing-default"
+                            >Mô tả</span
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default"
+                            id="description"
+                          />
+                        </div>
+                        <div id="errorDescription"></div>
+                        <div class="input-group mb-3">
+                          <span
+                            class="input-group-text"
+                            id="inputGroup-sizing-default"
+                            >Sỉ số</span
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default"
+                            id="classOfStudent"
+                          />
+                        </div>
+                        <div id="errorClassOfStudent"></div>
+                        <div class="input-group mb-3">
+                          <span class="input-group-text status" id="basic-addon1"
+                            >Trạng thái</span
+                          >
+                          <div class="flex-box">
+                            <input
+                              type="radio"
+                              name="status"
+                              id="studding"
+                              value="Hoạt động"
+                              checked
+                            /><label for="studding">Hoạt Động</label>
+                          </div>
+                          <div class="flex-box">
+                            <input
+                              type="radio"
+                              name="status"
+                              id="pending"
+                              value="Chờ lớp"
+                            /><label for="pending">Chờ lớp</label>
+                          </div>
+                          <div class="flex-box">
+                            <input
+                              type="radio"
+                              name="status"
+                              id="ending"
+                              value="Kết thúc"
+                            /><label for="ending">Kết thúc</label>
+                          </div>
+                          <div class="input-group mb-3">
+                            <span
+                              class="input-group-text span-course"
+                              id="inputGroup-sizing-default"
+                              >Khóa học</span
+                            >
+                            <select name="course" id="course"></select>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Đóng
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        id="btnCreateClass"
+                      >
+                        Thêm mới
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal edit-->
+              <div
+                class="modal fade"
+                id="editClassModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Chỉnh sửa lớp học
+                      </h5>
+                    </div>
+                    <div class="modal-body">
+                      <form action="#">
+                        <div class="input-group mb-3">
+                          <span
+                            class="input-group-text"
+                            id="inputGroup-sizing-default"
+                            >Mã lớp học</span
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default"
+                            id="updateClassId"
+                            placeholder="Nhập mã lớp học"
+                          />
+                        </div>
+                        <div id="errorId"></div>
+                        <div class="input-group mb-3">
+                          <span
+                            class="input-group-text"
+                            id="inputGroup-sizing-default"
+                            >Tên lớp học</span
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default"
+                            id="updateClassName"
+                            placeholder="Nhập tên lớp học"
+                          />
+                        </div>
+                        <div id="errorName"></div>
+                        <div class="input-group mb-3">
+                          <span
+                            class="input-group-text"
+                            id="inputGroup-sizing-default"
+                            >Giảng viên</span
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default"
+                            id="updateClassTeacher"
+                          />
+                        </div>
+                        <div id="errorTeacher"></div>
+                        <div class="input-group mb-3">
+                          <span
+                            class="input-group-text"
+                            id="inputGroup-sizing-default"
+                            >Mô tả</span
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default"
+                            id="updateDescription"
+                          />
+                        </div>
+                        <div id="errorDescription"></div>
+                        <div class="input-group mb-3">
+                          <span
+                            class="input-group-text"
+                            id="inputGroup-sizing-default"
+                            >Sỉ số</span
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default"
+                            id="updateClassOfStudent"
+                          />
+                        </div>
+                        <div id="errorClassOfStudent"></div>
+                        <div class="input-group mb-3">
+                          <span class="input-group-text status" id="basic-addon1"
+                            >Trạng thái</span
+                          >
+                          <div class="flex-box">
+                            <input
+                              type="radio"
+                              name="updateStatus"
+                              id="updateStudding"
+                              value="Hoạt động"
+                              checked
+                            /><label for="updateStudding">Hoạt Động</label>
+                          </div>
+                          <div class="flex-box">
+                            <input
+                              type="radio"
+                              name="updateStatus"
+                              id="updatePending"
+                              value="Chờ lớp"
+                            /><label for="updatePending">Chờ lớp</label>
+                          </div>
+                          <div class="flex-box">
+                            <input
+                              type="radio"
+                              name="updateStatus"
+                              id="updateEnding"
+                              value="Kết thúc"
+                            /><label for="updateEnding">Kết thúc</label>
+                          </div>
+                          <!-- <div class="input-group mb-3">
+                            <span
+                              class="input-group-text span-course"
+                              id="inputGroup-sizing-default"
+                              >Khóa học</span
+                            >
+                            <select
+                              name="updateCourse"
+                              id="updateCourse"
+                            ></select>
+                          </div> -->
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Đóng
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        id="btnUpdateClass"
+                      >
+                        Chỉnh sửa
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+               <!-- Modal xoa lớp hoc-->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa lớp học</h5>
+      </div>
+      <div class="modal-body">
+        Bạn chắc chắn muốn xóa lớp học?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-primary" id="btnDeleteClass">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>
+              <div class="search">
+                <input
+                  type="search"
+                  id="searchClass"
+                  name="searchClass"
+                  placeholder="Nhập tên lớp học cần tìm"
+                />
+                <button id="btnSearchClass" class="searchBtn">Tìm kiếm</button>
+              </div>
+              <div class="sortFunc">
+                <label for="sortClass">Sắp xếp:</label>
+                <select
+                  name="sortClass"
+                  id="sortClass"
+                  onchange="handSortClass()"
+                >
+                  <option value=""></option>
+                  <option value="classNameASC">
+                    Sắp xếp tên lớp học tăng dần
+                  </option>
+                  <option value="classNameDESC">
+                    Sắp xếp tên lớp học giảm dần
+                  </option>
+                </select>
+              </div>
+            </div>
+            <table border="1">
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Mã lớp học</th>
+                  <th>Tên lớp học</th>
+                  <th>Giảng viên</th>
+                  <th>Mô tả</th>
+                  <th>Sĩ số</th>
+                  <th>Trạng thái</th>
+                  <th>Hành động</th>
+                </tr>
+              </thead>
+              <tbody id="content"></tbody>
+            </table>
+            <div id="page">
+              <a id="preview" href="javascript:previewPage()">Preview</a>
+              <ul id="listPage"></ul>
+              <a id="next" href="javascript:nextPage()">Next</a>
+            </div>
+          </section>
+        </main>
+        <footer>
+          <p>Copyright: Rikkei Academy @2023</p>
+        </footer>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./javascript1/classManagement.js"></script>
+    <script src="./javascript1/logOut.js"></script>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none !important;
+  color: #fff !important;
+}
+
+.navi-link {
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer !important;
+}
+
+.navi-link.current {
+  background-color: rgba(68, 109, 187, 1);
+  border-radius: 4px;
+}
+
+#wrapper {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+
+.sidebar {
+  background: rgba(74, 75, 104, 1);
+  color: #fff;
+  height: 100vh;
+  padding: 2rem 2rem 0;
+  width: 25rem;
+}
+
+
+.sidebar #logo  {
+  text-align: center;
+}
+
+.sidebar #logo p {
+  margin: 1rem 0;
+}
+
+#border {
+  width: 100%;
+  border-top: 1px solid #fff;
+  margin-bottom: 3rem;
+}
+
+.main {
+  width: 100%;
+}
+.main .mainHeader {
+  background-color: rgba(252, 250, 250, 1);
+  padding: 1rem 9%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main .mainHeader .logoutArea {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.main .mainContainer {
+  padding: 1rem 9%;
+}
+
+.main .mainContainer .mainContainerTitle {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.main .mainContainer .mainContainerTitle h3 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.main .mainContainer .mainContent .mainItem {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.main .mainContainer .mainContent .mainItem:last-child {
+  margin-bottom: 0;
+}
+
+.main .mainContainer .mainContent .mainItem .mainItemIcon {
+  background-color: #eff3fa;
+  height: 100%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.main .mainContainer .mainContent{
+    display: flex;
+    /* justify-content: center; */
+    gap: 5rem;
+}
+
+.main .mainContainer .mainContent .mainItem .mainItemContent h4 {
+  margin-bottom: 1rem;
+}
+
+.main .mainContainer .mainContent .mainItem .mainItemContent p {
+  opacity: 0.8;
+}
+
+.contact {
+  position: fixed;
+  bottom: 5rem;
+  right: 5rem;
+  background-color: #4a4b68;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  width: 181px;
+  height: 60px;
+  padding: 1rem;
+  border-radius: 30px;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}
+

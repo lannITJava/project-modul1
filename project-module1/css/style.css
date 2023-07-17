@@ -1,0 +1,262 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+i {
+  padding: 0.5rem;
+}
+
+ul li {
+  list-style: none;
+  text-align: center;
+}
+
+#page,
+#listPage {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+#listPage {
+  margin-top: 1rem;
+}
+
+.btn-primary {
+  margin-left: 2rem;
+}
+
+#wrapper {
+  width: 100%;
+  display: flex;
+  align-items: start;
+}
+.editBtn div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+
+#edit,
+#delete {
+  border: 1px solid #ccc;
+  background: none;
+}
+#edit {
+  background-color: rgb(126, 126, 123);
+}
+#delete {
+  background-color: red;
+  color: #fff;
+}
+
+.input-group span {
+  width: 7rem;
+}
+
+.input-group span.status {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+.input-group .flex-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 1rem;
+}
+.input-group .flex-box:last-child {
+  margin-right: 0;
+}
+
+.input-group select {
+  width: calc(100% - 7rem);
+  border: 1px solid #ddd;
+  border-radius: 0.4rem;
+  padding-left: 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th {
+  text-align: center !important;
+}
+td,
+th {
+  border: 1px solid #333 !important;
+  padding: 0.5rem;
+}
+
+tbody tr:hover {
+  transition: 0.2s linear;
+  background: #eee;
+}
+
+.sidebar {
+  background: rgba(74, 75, 104, 1);
+  color: #fff;
+  height: 100vh;
+  padding: 2rem 2rem 0;
+  width: 25rem;
+}
+
+.sidebar #logo {
+  text-align: center;
+}
+
+.sidebar nav p {
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+#boder {
+  border-bottom: 1px solid #fff;
+  width: 100%;
+  height: 1px;
+  margin-bottom: 2rem;
+}
+
+.sidebar nav .navi-link {
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.sidebar nav .navi-link a {
+  color: #fff;
+}
+
+.sidebar nav .navi-link.current {
+  background-color: rgba(68, 109, 187, 1);
+  border-radius: 4px;
+}
+
+.main {
+  width: 100%;
+}
+.main header {
+  display: flex;
+  flex-flow: row-reverse;
+  background-color: rgba(252, 250, 250, 1);
+}
+
+.main header #header-two {
+  padding: 1rem 9%;
+}
+
+.main header #header-two button {
+  padding: 0.5rem 1.2rem;
+  border: none;
+  background-color: #0d6efd;
+  border-radius: 0.5rem;
+  margin-left: 2rem;
+}
+.main header #header-two button:hover {
+  opacity: 0.7;
+}
+.main header #header-two button a {
+  color: #fff;
+}
+
+.main main section {
+  padding: 1rem 9%;
+}
+
+.main main section #control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 0;
+}
+
+.main main section #control .search {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.main main section #control input[type="search"] {
+  width: 15rem;
+  padding: 0rem 1rem;
+  outline: none;
+  border-radius: 0.5rem;
+}
+
+.main main section #control .searchBtn:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.main main section #control .searchBtn,
+.main main section .sortFunc select {
+  padding: 0.5rem 1.2rem !important;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  outline: none;
+  border-radius: 0.5rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}
+
+/* student managemenet file */
+#create {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#create div span {
+  margin-right: 0.5rem;
+  color: #7749f8;
+}
+
+#create button {
+  background-color: #509cdb;
+  padding: 12px 14px 12px 14px;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  color: #fff;
+}
+
+#create button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+#search .searchContainer {
+  padding: .5rem;
+  width: 100%;
+  background-color: rgba(252, 250, 250, 1);
+  display: flex;
+}
+
+#search .searchContainer input {
+  border: none;
+  outline: none;
+  width: 100%;
+  background-color: transparent;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+#search .searchContainer i{
+  margin-top: 10px;
+}
+#btnSearchStudent{
+    width: 150px;
+    height: 40px;
+    margin-top: 5px;
+}

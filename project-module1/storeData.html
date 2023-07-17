@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cấu trúc dữ liệu project</title>
+</head>
+
+<body>
+    <script>
+        /*
+            Khóa học chứa 1 mảng các lớp
+            Lớp chứa 1 mảng các sinh viên
+        */
+        let studentManagementStore = []
+        let userSystem = [
+            { "userId": 1, "email": "user1@gmail.com", "password": "012345", "address": "VN" },
+            { "userId": 2, "email": "user2@gmail.com", "password": "234567", "address": "JP" }
+        ];
+        localStorage.setItem("studentManagementStore", JSON.stringify(studentManagementStore));
+        localStorage.setItem("userSystem", JSON.stringify(userSystem));
+    </script>
+</body>
+
+</html>
